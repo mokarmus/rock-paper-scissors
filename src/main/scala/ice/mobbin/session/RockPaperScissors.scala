@@ -12,6 +12,7 @@ sealed trait Gesture {
 object Rock extends Gesture {
   override def compete(other: Gesture): RoundResult = other match {
     case Scissors => FirstWins
+    case Paper => SecondWins
   }
 }
 object Scissors extends Gesture {
@@ -24,6 +25,7 @@ object Scissors extends Gesture {
 object Paper extends Gesture{
   override def compete(other: Gesture): RoundResult = other match {
     case Scissors => SecondWins
+    case Rock => FirstWins
   }
 }
 
@@ -32,3 +34,5 @@ trait RoundResult
 object FirstWins extends RoundResult
 
 object SecondWins extends RoundResult
+
+object Draw extends RoundResult

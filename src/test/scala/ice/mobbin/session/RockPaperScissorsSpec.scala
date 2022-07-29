@@ -22,6 +22,13 @@ class RockPaperScissorsSpec extends AnyWordSpec with Matchers {
       rockPaperScissors.playRound(Paper, Rock) shouldBe FirstWins
       rockPaperScissors.playRound(Rock, Paper) shouldBe SecondWins
     }
+    
+    "I want the same moves to draw" in {
+      rockPaperScissors.playRound(Paper, Paper) shouldBe Draw
+      rockPaperScissors.playRound(Rock, Rock) shouldBe Draw
+      rockPaperScissors.playRound(Scissors, Scissors) shouldBe Draw
+    }
+    
   }
 
 }
