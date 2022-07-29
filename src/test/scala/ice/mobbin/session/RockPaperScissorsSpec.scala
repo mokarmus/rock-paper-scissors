@@ -9,14 +9,19 @@ class RockPaperScissorsSpec extends AnyWordSpec with Matchers {
   "As a player" should {
     
     "I want rock to beat scissors" in {
-    rockPaperScissors.playRound(Rock, Scissors) shouldBe FirstWins
-    rockPaperScissors.playRound(Scissors, Rock) shouldBe SecondWins
-  } 
+      rockPaperScissors.playRound(Rock, Scissors) shouldBe FirstWins
+      rockPaperScissors.playRound(Scissors, Rock) shouldBe SecondWins
+    }
     
-  "I want scissors to beat paper" in {
-    rockPaperScissors.playRound(Scissors, Paper) shouldBe FirstWins
-    rockPaperScissors.playRound(Paper, Scissors) shouldBe SecondWins
-  }
+    "I want scissors to beat paper" in {
+      rockPaperScissors.playRound(Scissors, Paper) shouldBe FirstWins
+      rockPaperScissors.playRound(Paper, Scissors) shouldBe SecondWins
+    }
+
+    "I want paper to beat rock" in {
+      rockPaperScissors.playRound(Paper, Rock) shouldBe FirstWins
+      rockPaperScissors.playRound(Rock, Paper) shouldBe SecondWins
+    }
   }
 
 }

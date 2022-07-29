@@ -17,11 +17,14 @@ object Rock extends Gesture {
 object Scissors extends Gesture {
   override def compete(other: Gesture): RoundResult = other match {
      case Rock => SecondWins
+     case Paper => FirstWins
   }
 }
 
 object Paper extends Gesture{
-  override def compete(other: Gesture): RoundResult = ???
+  override def compete(other: Gesture): RoundResult = other match {
+    case Scissors => SecondWins
+  }
 }
 
 trait RoundResult
