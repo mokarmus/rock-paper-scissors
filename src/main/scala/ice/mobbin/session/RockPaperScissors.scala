@@ -20,6 +20,10 @@ object Scissors extends Gesture {
   }
 }
 
+object Paper extends Gesture{
+  override def compete(other: Gesture): RoundResult = ???
+}
+
 trait RoundResult
 
 object FirstWins extends RoundResult
