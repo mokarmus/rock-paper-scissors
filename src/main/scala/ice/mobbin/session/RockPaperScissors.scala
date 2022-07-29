@@ -14,6 +14,8 @@ object Rock extends Gesture {
     case Scissors => FirstWins
     case Paper => SecondWins
     case Rock => Draw
+    case Lizard => FirstWins
+    case Spock => SecondWins
   }
 }
 object Scissors extends Gesture {
@@ -21,6 +23,8 @@ object Scissors extends Gesture {
      case Rock => SecondWins
      case Paper => FirstWins
      case Scissors => Draw
+     case Spock => SecondWins
+     case Lizard => FirstWins
   }
 }
 
@@ -29,18 +33,28 @@ object Paper extends Gesture{
     case Scissors => SecondWins
     case Rock => FirstWins
     case Paper => Draw
+    case Lizard => SecondWins
+    case Spock => FirstWins
   }
 }
 
 object Lizard extends Gesture{
   override def compete(other: Gesture): RoundResult = other match {
     case Lizard => Draw
+    case Rock => SecondWins
+    case Spock => FirstWins
+    case Scissors => SecondWins
+    case Paper => FirstWins
   }
 }
 
 object Spock extends Gesture{
   override def compete(other: Gesture): RoundResult = other match {
     case Spock => Draw
+    case Lizard => SecondWins
+    case Scissors => FirstWins
+    case Paper => SecondWins
+    case Rock => FirstWins
   }
 }
 

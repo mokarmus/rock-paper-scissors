@@ -65,8 +65,7 @@ class RockPaperScissorsSpec extends AnyWordSpec with Matchers {
       rockPaperScissors.playRound(Rock, Spock) shouldBe SecondWins
       rockPaperScissors.playRound(Spock, Rock) shouldBe FirstWins
     }
-
-
+    
   }
 
 }
