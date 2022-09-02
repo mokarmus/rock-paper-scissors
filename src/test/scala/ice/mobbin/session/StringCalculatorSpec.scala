@@ -17,6 +17,17 @@ class StringCalculatorSpec extends AnyWordSpec with Matchers{
     "return 3 when input is 1,2" in {
       StringCalculator.add("1,2") shouldBe 3
     }
+    
+    "handle the unknown number of arguments" in {
+      StringCalculator.add("1,2,3,4") shouldBe 10
+      StringCalculator.add("1,2,3,4,5") shouldBe 15
+    }
+    
+    "handle the newlines as separators" in {
+      StringCalculator.add("1,2\n3,4") shouldBe 10
+    }
+    
+    
   }
 
 }
