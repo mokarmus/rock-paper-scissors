@@ -5,9 +5,13 @@ import org.scalatest.wordspec.AnyWordSpec
 
 class StringCalculatorSpec extends AnyWordSpec with Matchers{
 
-  "String Calculatro" should {
-    "return 0 when input in empty string" in {
+  "String Calculator" should {
+    "return 0 when input is empty string" in {
       StringCalculator.add("") shouldBe 0
+    }
+    
+    "return 1 when input is 1" in {
+      StringCalculator.add("1") shouldBe 1
     }
   }
 
