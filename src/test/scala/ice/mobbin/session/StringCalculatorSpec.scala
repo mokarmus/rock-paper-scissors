@@ -26,6 +26,10 @@ class StringCalculatorSpec extends AnyWordSpec with Matchers{
     "handle the newlines as separators" in {
       StringCalculator.add("1,2\n3,4") shouldBe 10
     }
+
+    "handle invalid separators" in {
+      assertThrows[Throwable](StringCalculator.add("1,2,\n3,4"))
+    }
     
     
   }
