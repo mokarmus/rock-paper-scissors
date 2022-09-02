@@ -35,6 +35,12 @@ class StringCalculatorSpec extends AnyWordSpec with Matchers{
       assertThrows[Throwable](StringCalculator.add("1,2,3,"))
       assertThrows[Throwable](StringCalculator.add("1,2,3\n"))
     }
+
+    "handle other delimeters as a separator" in {
+      StringCalculator.add("//;\\n1;3") shouldBe 4
+      StringCalculator.add("//|\\n1|2|3") shouldBe 6
+      StringCalculator.add("//sep\\n2sep5") shouldBe 7
+    }
     
   }
 
