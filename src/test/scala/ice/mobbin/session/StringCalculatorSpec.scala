@@ -13,6 +13,10 @@ class StringCalculatorSpec extends AnyWordSpec with Matchers{
     "return 1 when input is 1" in {
       StringCalculator.add("1") shouldBe 1
     }
+
+    "return 3 when input is 1,2" in {
+      StringCalculator.add("1,2") shouldBe 3
+    }
   }
 
 }
