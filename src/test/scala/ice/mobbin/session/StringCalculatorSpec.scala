@@ -31,6 +31,10 @@ class StringCalculatorSpec extends AnyWordSpec with Matchers{
       assertThrows[Throwable](StringCalculator.add("1,2,\n3,4"))
     }
     
+    "do not allow a separator at the end" in {
+      assertThrows[Throwable](StringCalculator.add("1,2,3,"))
+      assertThrows[Throwable](StringCalculator.add("1,2,3\n"))
+    }
     
   }
 
