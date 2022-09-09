@@ -9,7 +9,7 @@ class PasswordValidatorSpec extends AnyWordSpec with Matchers {
     "state invalid when password is not 8 characters long" in {
       val samplePassword = "1234567"
       
-      val expected = ValidationResult(isValid = false, Some("Password must be at least 8 characters"))
+      val expected = Invalid(isValid = false, "Password must be at least 8 characters")
       
       PasswordValidator.validate(samplePassword) shouldBe expected
     }
@@ -17,7 +17,7 @@ class PasswordValidatorSpec extends AnyWordSpec with Matchers {
     "state valid password when it meets all requirements" in {
       val samplePassword = "12345678"
 
-      val expected = ValidationResult(isValid = true, None)
+      val expected = Valid
 
       PasswordValidator.validate(samplePassword) shouldBe expected
     }
@@ -25,7 +25,7 @@ class PasswordValidatorSpec extends AnyWordSpec with Matchers {
     "state invalid when password does not contain at least 2 digits" in {
       val samplePassword = "abcdefgh"
 
-      val expected = ValidationResult(isValid = false, Some("The password must contain at least 2 numbers"))
+      val expected = Invalid(isValid = false, "The password must contain at least 2 numbers")
 
       PasswordValidator.validate(samplePassword) shouldBe expected
     }
@@ -33,7 +33,7 @@ class PasswordValidatorSpec extends AnyWordSpec with Matchers {
     "state invalid and provide multiple errors when multiple requirements not met" in {
       val samplePassword = "abcdefg"
 
-      val expected = ValidationResult(isValid = false, Some("Password must be at least 8 characters\nThe password must contain at least 2 numbers"))
+      val expected = Invalid(isValid = false,"Password must be at least 8 characters\nThe password must contain at least 2 numbers")
 
       PasswordValidator.validate(samplePassword) shouldBe expected
     }
