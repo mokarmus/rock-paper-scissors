@@ -21,5 +21,21 @@ class PasswordValidatorSpec extends AnyWordSpec with Matchers {
 
       PasswordValidator.validate(samplePassword) shouldBe expected
     }
+
+    "state invalid when password does not contain at least 2 digits" in {
+      val samplePassword = "abcdefgh"
+
+      val expected = ValidationResult(isValid = false, Some("The password must contain at least 2 numbers"))
+
+      PasswordValidator.validate(samplePassword) shouldBe expected
+    }
+
+    "state invalid and provide multiple errors when multiple requirements not met" in {
+      val samplePassword = "abcdefg"
+
+      val expected = ValidationResult(isValid = false, Some("Password must be at least 8 characters\\nThe password must contain at least 2 numbers"))
+
+      PasswordValidator.validate(samplePassword) shouldBe expected
+    }
   }
 }
