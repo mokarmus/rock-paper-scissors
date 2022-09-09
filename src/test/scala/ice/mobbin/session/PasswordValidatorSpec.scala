@@ -33,7 +33,7 @@ class PasswordValidatorSpec extends AnyWordSpec with Matchers {
     "state invalid and provide multiple errors when multiple requirements not met" in {
       val samplePassword = "abcdefg"
 
-      val expected = ValidationResult(isValid = false, Some("Password must be at least 8 characters\\nThe password must contain at least 2 numbers"))
+      val expected = ValidationResult(isValid = false, Some("Password must be at least 8 characters\nThe password must contain at least 2 numbers"))
 
       PasswordValidator.validate(samplePassword) shouldBe expected
     }
